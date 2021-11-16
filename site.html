@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <title>Random Number Generator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body onload="init()">
+    <h1 id="title1">Random number <br>generator</h1>
+    <form action="script.js">
+        <label for="min">Minimum:</label>
+        <input type="number" id="minum" name="minum"><br><br>
+
+        <label for="max">Maximum:</label>
+        <input type="number" id="maxnum" name="maxnum"><br><br>
+
+        <label for="round">Decimals:</label>
+        <input type="number" id="round" name="round"><br><br>
+
+        <input type='button' value='Submit' onclick="randNumber()" id="submit">
+        <br>
+
+        <label for="int">Interger:</label>
+        <input type='radio' id='int' class='rad1' name='numType' value='0' onclick="document.getElementById('round').disabled = true">
+
+        <label for="dec">Decimal:</label>
+        <input type="radio" id="dec" class="rad" name="numType" value="1" onclick="document.getElementById('round').disabled = false">
+
+    </form>
+    <h1 id="result">Select values</h1>
+    <script src="script.js"></script>
+</body>
+
+</html>

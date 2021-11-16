@@ -1,0 +1,110 @@
+<html>
+<head>
+    <title>Random Number Generator</title>
+    <style>
+        body {
+        text-align: center;
+        background-image: url("https://wallpapercave.com/wp/wp6956337.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-repeat: round;
+        background-attachment: fixed;
+    }
+
+    form {
+        resize: both;
+        margin: auto;
+        width: 300px;
+        height: 200px;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        border-style: solid;
+        background-color: grey;
+        border-radius: 15px;
+    }
+
+    label {
+        color: white;
+        font-weight: bold;
+    }
+
+    input {
+        resize: vertical;
+    }
+
+    #submit {
+        margin-top: 5%;
+        width: 35%;
+        height: 15%;
+    }
+
+    h1 {
+        color: white;
+    }
+
+    #title1 {
+        margin-top: 12%;
+    }
+
+    .rad {
+        margin-top: 5%;
+    }
+
+    input {
+        size: 15%;
+    }
+    </style>
+</head>
+
+<body onload="init()">
+    <h1 id="title1">Random number <br>generator</h1>
+    <form action="script.js">
+        <label for="min">Minimum:</label>
+        <input type="number" id="minum" name="minum"><br><br>
+
+        <label for="max">Maximum:</label>
+        <input type="number" id="maxnum" name="maxnum"><br><br>
+
+        <label for="round">Decimals:</label>
+        <input type="number" id="round" name="round"><br><br>
+
+        <input type='button' value='Submit' onclick="randNumber()" id="submit">
+        <br>
+
+        <label for="int">Interger:</label>
+        <input type='radio' id='int' class='rad1' name='numType' value='0' onclick="document.getElementById('round').disabled = true">
+
+        <label for="dec">Decimal:</label>
+        <input type="radio" id="dec" class="rad" name="numType" value="1" onclick="document.getElementById('round').disabled = false">
+
+    </form>
+    <h1 id="result">Select values</h1>
+    <script>
+        init = () => {
+    document.getElementById("round").disabled = true;
+    document.getElementById("int").checked = true;
+    document
+}
+
+
+randNumber = () => {
+    var minNum = document.getElementById("minum").value;
+    var maxNum = document.getElementById("maxnum").value;
+    var result = document.getElementById("result");
+    var selector = [document.getElementById("int"), document.getElementById("dec")];
+    var roundTo = document.getElementById("round").value;
+
+    if (minNum <= maxNum) {
+        if (selector[0].checked == true) {
+            result.innerHTML = "Result: " + (Number(Math.floor(Math.random() * (Math.floor(maxNum) - Math.floor(minNum) + 1))) + Number(Math.floor(minNum)));
+        } else {
+            result.innerHTML = "Result: " + (Number(Math.random() * (maxNum - minNum)) + Number(minNum)).toFixed(roundTo);
+        };
+    } else {
+        result.innerHTML = "Invalid input";
+    }
+};
+    </script>
+</body>
+
+</html>
